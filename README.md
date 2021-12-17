@@ -66,7 +66,7 @@ To run the project, you must have the following installed:
 ## Project Setup
 
 ### Clone project
-```git clone https://github.com/RobertoBetancourt/todo-app.git```
+```git clone https://github.com/RobertoBetancourt/user-management.git```
 
 ### Back-end
 
