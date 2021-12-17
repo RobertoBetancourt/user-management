@@ -1,0 +1,57 @@
+# Types
+type Query {
+  getBasicUserList: [BasicUser!]!
+  getAllUsers: [User!]!
+  getUser: User!
+}
+
+type Mutation {
+  signUp(data: SignUpInput!): AuthPayload!
+  login(data: LoginInput!): AuthPayload!
+  updateUser(data: UpdateUserInput!): User!
+  deleteUser(data: DeleteUserInput!): User!
+}
+
+type User {
+  id: Int!
+  email: String!
+  name: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type BasicUser {
+  id: Int!
+  name: String
+}
+
+# Inputs
+input SignUpInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  id: Int!
+  name: String!
+  oldPassword: String
+  newPassword: String
+}
+
+input DeleteUserInput {
+  id: Int!
+}
+
+# Custom Payloads
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+scalar DateTime

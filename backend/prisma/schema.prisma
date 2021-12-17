@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin_db:admin12345678@localhost:5432/postgres_db?schema=public"
+}
+
+model User {
+  id              Int         @id @default(autoincrement())
+  active          Boolean     @default(true)
+  email           String      @unique
+  name            String?
+  password        String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
